@@ -7,6 +7,22 @@ const questions = [
     'Enter a color keyword or a hexadecimal number to choose your shape color.',
 ];
 
+const generateSVG = data => {
+    // Determine the svg code for a given shape choice and assign it to a variable called svgShapeTxt
+    let svgShapeTxt;
+    if (data.shape == 'Triangle') {
+        svgShapeTxt = 'polygon points="150, 18 244, 182 56, 182"';
+    } else if (data.shape == 'Circle') {
+        svgShapeTxt = 'circle cx="150" cy="100" r="80"';
+    } else {
+        svgShapeTxt = 'rect width="300" height="200"';
+    }
+
+    return `<${svgShapeTxt} fill="${data.shapeColor}"/>
+
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">SVG</text>`
+};
+
 inquirer
     .prompt([
         {
@@ -17,7 +33,7 @@ inquirer
         {
             type: 'input',
             message: questions[1],
-            name: 'text-color',
+            name: 'textColor',
         },
         {
             type: 'list',
@@ -28,11 +44,11 @@ inquirer
         {
             type: 'input',
             message: questions[3],
-            name: 'shape-color',
+            name: 'shapeColor',
         },
     ])
     .then((res) => {
         fs.writeFile('./generatedSVG/logo.svg', generateSVG(res), err =>
-        err ? console.log(err) : console.log('Generated logo.svg');
+        err ? console.log(err) : console.log('Generated logo.svg')
         );
     });
