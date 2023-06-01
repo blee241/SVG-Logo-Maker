@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/blee241/SVG-Logo-Maker#readme",
   "dependencies": {
-    "inquirer": "^9.2.6",
+    "inquirer": "^8.2.5",
     "jest": "^29.5.0"
   }
 }

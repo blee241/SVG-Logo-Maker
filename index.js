@@ -18,9 +18,14 @@ const generateSVG = data => {
         svgShapeTxt = 'rect width="300" height="200"';
     }
 
-    return `<${svgShapeTxt} fill="${data.shapeColor}"/>
+    return `
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
 
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">SVG</text>`
+    <${svgShapeTxt} fill="${data.shapeColor}"/>
+
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">SVG</text>
+    
+    </svg>`
 };
 
 inquirer
@@ -52,3 +57,5 @@ inquirer
         err ? console.log(err) : console.log('Generated logo.svg')
         );
     });
+
+    
