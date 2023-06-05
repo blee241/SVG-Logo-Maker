@@ -20,7 +20,7 @@
 
   ## Usage
 
-  ![Usage Video](https://drive.google.com/file/d/13Z_5J-P0j-zn9oNkfOiPFuCyk1wcVAf1/view)
+  ![Usage Video][Untitled_ Jun 5, 2023 3_37 PM.webm](https://github.com/blee241/SVG-Logo-Maker/assets/128437170/776f1323-d33b-45d2-9761-e5eb7fe7e12d)
   Use this project to create a simple logo consisting of simple shapes and text.
 
   ## License
