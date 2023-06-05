@@ -35,13 +35,13 @@ inquirer
     .then((res) => {
         if (res.shape == 'Triangle') {
             const newTriangle = new Triangle(res.text, res.textColor, res.shape, res.shapeColor);
-            newTriangle.render();
+            newTriangle.writeToFile();
         } else if (res.shape == 'Circle') {
             const newCircle = new Circle(res.text, res.textColor, res.shape, res.shapeColor);
-            newCircle.render();
+            newCircle.writeToFile();
         } else {
             const newSquare = new Square(res.text, res.textColor, res.shape, res.shapeColor);
-            newSquare.render();
+            newSquare.writeToFile();
         }
     });
 
