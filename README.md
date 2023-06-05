@@ -20,6 +20,7 @@
 
   ## Usage
 
+  ![Usage Video](https://drive.google.com/file/d/13Z_5J-P0j-zn9oNkfOiPFuCyk1wcVAf1/view)
   Use this project to create a simple logo consisting of simple shapes and text.
 
   ## License
