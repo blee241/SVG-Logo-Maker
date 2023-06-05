@@ -1,3 +1,4 @@
+const { Triangle, Circle, Square } = require('./lib/shapes');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const questions = [
@@ -6,27 +7,6 @@ const questions = [
     'Pick a shape for your logo.',
     'Enter a color keyword or a hexadecimal number to choose your shape color.',
 ];
-
-const generateSVG = data => {
-    // Determine the svg code for a given shape choice and assign it to a variable called svgShapeTxt
-    let svgShapeTxt;
-    if (data.shape == 'Triangle') {
-        svgShapeTxt = 'polygon points="150, 18 244, 182 56, 182"';
-    } else if (data.shape == 'Circle') {
-        svgShapeTxt = 'circle cx="150" cy="100" r="80"';
-    } else {
-        svgShapeTxt = 'rect width="300" height="200"';
-    }
-
-    return `
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="200">
-
-    <${svgShapeTxt} fill="${data.shapeColor}"/>
-
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${data.textColor}">SVG</text>
-    
-    </svg>`
-};
 
 inquirer
     .prompt([
@@ -43,7 +23,7 @@ inquirer
         {
             type: 'list',
             message: questions[2],
-            choices: ['Triangle', 'Circle', 'Rectangle'],
+            choices: ['Triangle', 'Circle', 'Square'],
             name: 'shape',
         },
         {
@@ -53,9 +33,16 @@ inquirer
         },
     ])
     .then((res) => {
-        fs.writeFile('./generatedSVG/logo.svg', generateSVG(res), err =>
-        err ? console.log(err) : console.log('Generated logo.svg')
-        );
+        if (res.shape == 'Triangle') {
+            const newTriangle = new Triangle(res.text, res.textColor, res.shape, res.shapeColor);
+            newTriangle.render();
+        } else if (res.shape == 'Circle') {
+            const newCircle = new Circle(res.text, res.textColor, res.shape, res.shapeColor);
+            newCircle.render();
+        } else {
+            const newSquare = new Square(res.text, res.textColor, res.shape, res.shapeColor);
+            newSquare.render();
+        }
     });
 
     
